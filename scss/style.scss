@@ -1,0 +1,215 @@
+@use 'variables' as *;
+
+
+// 3. ESTILOS BASE
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-main;
+    color: $dark;
+    background-color: $light;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding { padding: 80px 0; }
+.text-center { text-align: center; }
+
+// Botones
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &--primary {
+        background-color: $primary;
+        color: $white;
+        &:hover { background-color: $secondary; }
+    }
+    &--secondary {
+        background-color: $dark;
+        color: $white;
+        width: 100%;
+        &:hover { background-color: lighten(#666, 15%); }
+    }
+}
+
+// 4. ANIDACIÓN (HEADER & NAV)
+.header {
+    background-color: $white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .nav {
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: $dark;
+            span { color: $primary; }
+        }
+
+        &__toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none; // Oculto en desktop
+        }
+
+        &__list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+
+            .nav__link {
+                text-decoration: none;
+                color: $dark;
+                font-weight: 500;
+                &:hover { color: $primary; }
+            }
+
+            .nav__btn {
+                background: $primary;
+                color: $white;
+                padding: 8px 16px;
+                border-radius: 4px;
+                &:hover { background: $secondary; color: $white; }
+            }
+        }
+    }
+}
+
+// 5. HERO
+.hero {
+    background: linear-gradient(rgba($dark, 0.8), rgba($dark, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+    height: 70vh;
+    @include flex-center(column);
+    text-align: center;
+    color: $white;
+
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+    p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
+}
+
+// 6. CATÁLOGO (GRID RESPONSIVE)
+.services {
+    &__filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem 0;
+
+        .filter-btn {
+            background: $white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+
+            &.active, &:hover {
+                background: $primary;
+                color: $white;
+                border-color: $primary;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: 2rem;
+        // RESPONSIVE GRID AUTO-FIT
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+// Tarjetas inyectadas por JS
+.card {
+    background: $white;
+    padding: 2rem;
+    border-radius: 8px;
+    @include card-shadow;
+    text-align: center;
+
+    &__cat { font-size: 0.85rem; color: $primary; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;}
+    &__title { font-size: 1.25rem; margin-bottom: 1rem; }
+    &__desc { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    &__price { font-size: 1.5rem; font-weight: 700; color: $dark; margin-bottom: 1.5rem; }
+}
+
+// 7. FORMULARIO
+.contact {
+    background-color: $white;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .form {
+        &__group {
+            margin-bottom: 1.5rem;
+            label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+            input, select, textarea {
+                width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;
+                font-family: inherit;
+                &:focus { outline: none; border-color: $primary; }
+            }
+        }
+        &__message {
+            margin-bottom: 1rem; padding: 10px; border-radius: 4px; display: none;
+            &.error { background: #fee2e2; color: $danger; display: block; }
+            &.success { background: #d1fae5; color: $success; display: block; }
+        }
+    }
+}
+
+.footer {
+    background: $dark; color: $white; padding: 2rem 0;
+    .team-note {
+        margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.85rem; color: #ccc;
+        ul { list-style: none; margin-top: 0.5rem; }
+    }
+}
+
+// 8. MEDIA QUERIES (BREAKPOINTS)
+@media (max-width: $tablet) {
+    .header .nav {
+        &__toggle { display: block; }
+        &__list {
+            position: absolute; top: 70px; left: -100%;
+            flex-direction: column; width: 100%; background: $white;
+            padding: 2rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: left 0.3s;
+            &.show { left: 0; }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .contact__container { grid-template-columns: 1fr 1fr; align-items: start; }
+}

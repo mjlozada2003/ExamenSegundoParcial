@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova | Soluciones Digitales</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Tech<span>Nova</span></a>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav__list" id="nav-list">
+                <li><a href="#inicio" class="nav__link">Inicio</a></li>
+                <li><a href="#servicios" class="nav__link">Servicios</a></li>
+                <li><a href="#contacto" class="nav__link nav__btn">Contactar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container hero__content">
+                <h1>Impulsa tu negocio al mundo digital</h1>
+                <p>Diseñamos, desarrollamos y posicionamos tu marca con tecnología de vanguardia y estrategias efectivas.</p>
+                <a href="#servicios" class="btn btn--primary">Ver Catálogo</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="services section-padding container">
+            <div class="text-center">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones a medida para cada necesidad</p>
+            </div>
+
+            <div class="services__filters" id="filters">
+                <button class="filter-btn active" data-filter="Todos">Todos</button>
+                <button class="filter-btn" data-filter="Desarrollo Web">Desarrollo Web</button>
+                <button class="filter-btn" data-filter="Diseño UI/UX">Diseño UI/UX</button>
+                <button class="filter-btn" data-filter="Marketing">Marketing</button>
+            </div>
+
+            <div class="services__grid" id="services-grid">
+                </div>
+        </section>
+
+        <section id="contacto" class="contact section-padding">
+            <div class="container contact__container">
+                <div class="contact__info">
+                    <h2>Trabajemos juntos</h2>
+                    <p>Déjanos tus datos y un asesor se comunicará contigo en menos de 24 horas.</p>
+                </div>
+                
+                <form id="contact-form" class="form">
+                    <div class="form__group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="text" id="email" name="email" placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="form__group">
+                        <label for="servicio">Servicio de interés *</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Desarrollo Web">Desarrollo Web</option>
+                            <option value="Diseño UI/UX">Diseño UI/UX</option>
+                            <option value="Marketing Digital">Marketing Digital</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                    </div>
+                    
+                    <div id="form-message" class="form__message"></div>
+                    
+                    <button type="submit" class="btn btn--secondary">Enviar Solicitud</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 TechNova. Todos los derechos reservados.</p>
+            
+            <div class="team-note">
+                <h4>Detalle del Trabajo en Pareja:</h4>
+                <ul>
+                    <li><strong>Estudiante 1:</strong> Estructura HTML semántica, estilos base SASS (Mixins y Variables), maquetación del Hero y Footer, y validación de formulario JS.</li>
+                    <li><strong>Estudiante 2:</strong> Lógica JavaScript para manipulación del DOM (creación de tarjetas y filtros dinámicos), estilos Grid/Flexbox responsivo y menú móvil.</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
