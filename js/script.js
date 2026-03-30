@@ -8,14 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
         navList.classList.toggle('show');
     });
 
-    // FILTROS
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
 
-            // Activar botón
             filterBtns.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
 
@@ -34,17 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // BOTONES "SOLICITAR"
     const buttons = document.querySelectorAll('.card button');
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const title = btn.closest('.card').querySelector('.card__title').textContent;
+            const card = btn.closest('.card');
+            const title = card.querySelector('.card__title').textContent;
             alert(`Cotizando: ${title}`);
+            btn.textContent = '¡Solicitado!';
+            btn.classList.add('btn--success');
+            btn.disabled = true;
         });
     });
 
-    // FORMULARIO
     const form = document.getElementById('contact-form');
     const msgBox = document.getElementById('form-message');
 

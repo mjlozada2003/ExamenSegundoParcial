@@ -47,6 +47,15 @@ body {
     }
 }
 
+.btn--success {
+    background-color: $success; 
+    color: $white;
+
+    &:hover {
+        background-color: $success;
+    }
+}
+
 // 4. ANIDACIÓN (HEADER & NAV)
 .header {
     background-color: $white;
@@ -148,15 +157,51 @@ body {
 // Tarjetas inyectadas por JS
 .card {
     background: $white;
-    padding: 2rem;
-    border-radius: 8px;
+    border-radius: 10px;
+    overflow: hidden; // 🔥 clave para que la imagen respete bordes
     @include card-shadow;
-    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 
-    &__cat { font-size: 0.85rem; color: $primary; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;}
-    &__title { font-size: 1.25rem; margin-bottom: 1rem; }
-    &__desc { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
-    &__price { font-size: 1.5rem; font-weight: 700; color: $dark; margin-bottom: 1.5rem; }
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    &__img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; 
+    }
+
+    &__content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    &__cat {
+        font-size: 0.8rem;
+        color: $primary;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    &__desc {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    &__price {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
 }
 
 // 7. FORMULARIO
