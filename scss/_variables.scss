@@ -8,8 +8,8 @@ $success: #2e7d32;     // Verde oscuro para mensajes de éxito (mantiene el cont
 $font-main: 'Segoe UI', system-ui, sans-serif;
 $tablet: 768px;
 $desktop: 1024px;
+$success: #22c55e; 
 
-// 2. MIXINS (Reutilización obligatoria)
 @mixin flex-center($direction: row) {
     display: flex;
     flex-direction: $direction;
