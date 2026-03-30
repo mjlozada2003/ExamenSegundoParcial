@@ -437,18 +437,55 @@ body {
     }
 }
 
-// 8. MEDIA QUERIES (Actualización para el contacto)
-@media (min-width: $desktop) {
-    .contact {
-        &__container { 
-            grid-template-columns: 1fr 1fr; // 2 columnas en PC
-            align-items: center;
+// 8. MEDIA QUERIES (BREAKPOINTS)
+
+// --- ESTILOS PARA MÓVIL (Menú Hamburguesa) ---
+@media (max-width: $tablet) {
+    .header .nav {
+        // Mostrar el ícono de hamburguesa
+        &__toggle { 
+            display: block; 
+            color: $dark;
         }
-        &__info {
-            padding-right: 4rem; // Da un respiro entre el texto y el form
-        }
-        .form {
-            padding: 3.5rem; // Más espacioso en PC
+        
+        // Ocultar y estilizar la lista como menú desplegable
+        &__list {
+            position: absolute; 
+            top: 70px; // Justo debajo del header
+            left: -100%; // Oculto fuera de la pantalla por defecto
+            flex-direction: column; 
+            width: 100%; 
+            background: $white;
+            padding: 2rem 0; 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); // Transición fluida
+            
+            // Clase que se agrega con JS al hacer clic
+            &.show { 
+                left: 0; 
+            }
+
+            // Separación de los enlaces en el menú móvil
+            li {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .nav__link {
+                display: block;
+                padding: 10px;
+                font-size: 1.1rem;
+            }
+
+            .nav__btn {
+                display: inline-block;
+                width: 80%; // Que el botón ocupe casi todo el ancho en móvil
+            }
         }
     }
 }
