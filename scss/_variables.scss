@@ -1,10 +1,10 @@
-$primary: #2563eb;
-$secondary: #1e40af;
-$dark: #1f2937;
-$light: #f8fafc;
-$white: #ffffff;
-$danger: #ef4444;
-$success: #10b981;
+$primary: #e53935;     // Rojo principal (vibrante y llamativo)
+$secondary: #b71c1c;   // Rojo oscuro (para efectos hover y acentos)
+$dark: #121212;        // Negro/Gris muy oscuro (para textos principales, footer y hero)
+$light: #f5f5f5;       // Gris muy claro (para fondos de sección, hace resaltar las tarjetas blancas)
+$white: #ffffff;       // Blanco puro (para textos sobre fondos oscuros y tarjetas)
+$danger: #d32f2f;      // Rojo para mensajes de error
+$success: #2e7d32;     // Verde oscuro para mensajes de éxito (mantiene el contraste)
 $font-main: 'Segoe UI', system-ui, sans-serif;
 $tablet: 768px;
 $desktop: 1024px;
