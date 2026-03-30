@@ -20,8 +20,12 @@ body {
     margin: 0 auto;
 }
 
-.section-padding { padding: 80px 0; }
-.text-center { text-align: center; }
+.section-padding { 
+    padding: 80px 0;
+ }
+.text-center { 
+    text-align: center;
+}
 
 
 .btn {
@@ -129,8 +133,6 @@ body {
          max-width: 600px; 
         }
 }
-
-// 6. CATÁLOGO (GRID RESPONSIVE)
 .services {
     &__filters {
         display: flex;
@@ -159,16 +161,14 @@ body {
     &__grid {
         display: grid;
         gap: 2rem;
-        // RESPONSIVE GRID AUTO-FIT
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
-// Tarjetas inyectadas por JS
 .card {
     background: $white;
     border-radius: 10px;
-    overflow: hidden; // 🔥 clave para que la imagen respete bordes
+    overflow: hidden; 
     @include card-shadow;
     transition: transform 0.3s, box-shadow 0.3s;
 
@@ -214,14 +214,12 @@ body {
     }
 }
 
-// 7. FORMULARIO (Estilo Premium Rojo y Negro)
 .contact {
-    background-color: $dark; // Fondo de sección negro para máximo contraste
+    background-color: $dark; 
     color: $white;
     position: relative;
     overflow: hidden;
 
-    // Detalle visual: Resplandor rojo sutil de fondo
     &::before {
         content: '';
         position: absolute;
@@ -240,7 +238,7 @@ body {
         gap: 3rem;
         align-items: center;
         position: relative;
-        z-index: 1; // Para que esté sobre el resplandor
+        z-index: 1; 
     }
 
     &__info {
@@ -248,23 +246,24 @@ body {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
             line-height: 1.1;
-            span { color: $primary; } // Pone el texto en rojo si usas <span> en el HTML
+            span { 
+                color: $primary;
+            }
         }
         p {
             font-size: 1.15rem;
-            color: #a1a1aa; // Gris claro para lectura cómoda sobre negro
+            color: #a1a1aa;
             margin-bottom: 2rem;
         }
     }
 
-    // EL FORMULARIO (Tarjeta flotante)
     .form {
         background-color: $white;
         padding: 3rem 2rem;
         border-radius: 12px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); // Sombra profunda
-        border-top: 6px solid $primary; // Acento rojo agresivo
-        color: $dark; // El texto del formulario vuelve a ser oscuro
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+        border-top: 6px solid $primary; 
+        color: $dark;
 
         &__group {
             margin-bottom: 1.5rem;
@@ -282,22 +281,21 @@ body {
             input, select, textarea {
                 width: 100%; 
                 padding: 14px 16px; 
-                background-color: #f3f4f6; // Gris muy sutil (moderno)
+                background-color: #f3f4f6; 
                 border: 2px solid transparent; 
                 border-radius: 8px;
                 font-family: inherit;
                 font-size: 1rem;
                 color: $dark;
-                transition: all 0.3s ease; // Transición suave
+                transition: all 0.3s ease; 
                 
                 &::placeholder { color: #9ca3af; }
 
-                // EFECTO FOCUS (Cuando el usuario escribe)
                 &:focus { 
                     outline: none; 
                     background-color: $white;
                     border-color: $primary; 
-                    box-shadow: 0 0 0 4px rgba($primary, 0.15); // Aro rojo brillante
+                    box-shadow: 0 0 0 4px rgba($primary, 0.15); 
                 }
             }
             
@@ -319,7 +317,6 @@ body {
             &.success { background: #d1fae5; color: $success; border: 1px solid #6ee7b7; display: block; }
         }
 
-        // BOTÓN DEL FORMULARIO
         button[type="submit"] {
             width: 100%;
             padding: 16px;
@@ -332,20 +329,20 @@ body {
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba($primary, 0.4); // Sombra que proyecta luz roja
+            box-shadow: 0 4px 15px rgba($primary, 0.4); 
             transition: all 0.3s ease;
             
             &:hover {
                 background-color: $secondary;
-                transform: translateY(-3px); // Se eleva al pasar el mouse
-                box-shadow: 0 8px 25px rgba($primary, 0.6); // La sombra se hace más intensa
+                transform: translateY(-3px); 
+                box-shadow: 0 8px 25px rgba($primary, 0.6);
             }
         }
     }
 }
 
 .footer {
-    background: #0f172a; // azul oscuro elegante
+    background: #0f172a;
     color: #cbd5f5;
     padding-top: 60px;
 
@@ -437,35 +434,28 @@ body {
     }
 }
 
-// 8. MEDIA QUERIES (BREAKPOINTS)
-
-// --- ESTILOS PARA MÓVIL (Menú Hamburguesa) ---
 @media (max-width: $tablet) {
     .header .nav {
-        // Mostrar el ícono de hamburguesa
         &__toggle { 
             display: block; 
             color: $dark;
         }
-        
-        // Ocultar y estilizar la lista como menú desplegable
+    
         &__list {
             position: absolute; 
-            top: 70px; // Justo debajo del header
-            left: -100%; // Oculto fuera de la pantalla por defecto
+            top: 70px;
+            left: -100%; 
             flex-direction: column; 
             width: 100%; 
             background: $white;
             padding: 2rem 0; 
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); // Transición fluida
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             
-            // Clase que se agrega con JS al hacer clic
             &.show { 
                 left: 0; 
             }
 
-            // Separación de los enlaces en el menú móvil
             li {
                 width: 100%;
                 text-align: center;
@@ -484,7 +474,7 @@ body {
 
             .nav__btn {
                 display: inline-block;
-                width: 80%; // Que el botón ocupe casi todo el ancho en móvil
+                width: 80%; 
             }
         }
     }

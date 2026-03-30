@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // MENÚ MÓVIL
     const navToggle = document.getElementById('nav-toggle');
     const navList = document.getElementById('nav-list');
-
-    // Cerrar menú al hacer clic en un enlace
     const navLinks = document.querySelectorAll('.nav__link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
